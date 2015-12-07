@@ -45,8 +45,8 @@ end
 def toggle(arr, startX, startY, endX, endY)
   i = startX
   j = startY
-  while(i < endX) do
-    while(j < endY) do
+  while(i <= endX) do
+    while(j <= endY) do
 	  if(arr[i][j] == 1)
 		arr[i][j] = 0
 	  else
