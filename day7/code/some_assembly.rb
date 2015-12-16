@@ -7,7 +7,11 @@ def evalLHS(lhs, vals)
 	
   id = getIdentifier(tokens[0], vals)
 
-  id.to_i
+  if(id != nil)
+	id.to_i
+  else
+    return nil
+  end
   elsif(tokens.length == 2)
     # Reduce a NOT
   val = vals[tokens[1]]
@@ -27,11 +31,9 @@ def evalLHS(lhs, vals)
 end
 
 def getIdentifier(token, values)
-  if(token == "1" || token == "0")
-    token.to_i
-  else
-    values[token]
-  end
+
+  return token.to_i if token =~ /\A\d+\Z/
+  values[token]
 end
 
 def reduceStatement(tokens, values)
